@@ -57,9 +57,21 @@ void _putchar(char character);
  * \param format A string that specifies the format of the output
  * \return The number of characters that are written into the array, not counting the terminating null character
  */
+#ifndef printf
 #define printf printf_
+#endif
 int printf_(const char* format, ...);
 
+/**
+ * Tiny vprintf implementation
+ * \param format A string that specifies the format of the output
+ * \param va A value identifying a variable arguments list
+ * \return The number of characters that are WRITTEN into the buffer, not counting the terminating null character
+ */
+#ifndef vprintf
+#define vprintf vprintf_
+#endif
+int vprintf_(const char* format, va_list va);
 
 /**
  * Tiny sprintf implementation
@@ -86,16 +98,6 @@ int sprintf_(char* buffer, const char* format, ...);
 #define vsnprintf vsnprintf_
 int  snprintf_(char* buffer, size_t count, const char* format, ...);
 int vsnprintf_(char* buffer, size_t count, const char* format, va_list va);
-
-
-/**
- * Tiny vprintf implementation
- * \param format A string that specifies the format of the output
- * \param va A value identifying a variable arguments list
- * \return The number of characters that are WRITTEN into the buffer, not counting the terminating null character
- */
-#define vprintf vprintf_
-int vprintf_(const char* format, va_list va);
 
 
 /**
